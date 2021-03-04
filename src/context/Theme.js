@@ -1,16 +1,39 @@
-import { useContext, useState, createContext } from "react"
+import { useContext, useState, createContext, useEffect } from "react"
 
 export const ThemeContext = createContext({})
 
 export const ThemeProvider = (props) => {
-  const [themeDark, setThemeDark] = useState(true)
+  const [themeLight, setThemeLight] = useState(false)
 
-  function handleSetThemeDark() {
-    setThemeDark(!themeDark)
+  useEffect(() => {
+    //colors
+    const colorLight = [
+      "--background: #f4f6f8",
+      " --card: #ffffff",
+      "--text: #19202D",
+      "--border: #E7E8E9",
+    ]
+    const colorDark = [
+      "--background: #121721",
+      " --card: #19202d",
+      "--text: #FFFFFF",
+      "--border: #313743",
+    ]
+
+    //root css variables
+    const root = document.getElementsByTagName("html")[0]
+    root.style.cssText = !themeLight
+      ? colorDark.join(";")
+      : colorLight.join(";")
+  }, [themeLight])
+
+  //handle set theme
+  function handleSetThemeLight() {
+    setThemeLight(!themeLight)
   }
 
   return (
-    <ThemeContext.Provider value={{ themeDark, handleSetThemeDark }}>
+    <ThemeContext.Provider value={{ themeLight, handleSetThemeLight }}>
       {props.children}
     </ThemeContext.Provider>
   )

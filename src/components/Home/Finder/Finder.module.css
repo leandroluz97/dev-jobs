@@ -1,0 +1,163 @@
+.finder {
+  transform: translateY(-50%);
+  margin: 0 2rem;
+}
+
+.finderContainer {
+  background: var(--card);
+  border-radius: 6px;
+
+  max-width: var(--screen-size);
+  margin: 0rem auto 0 auto;
+  padding: 1.5rem;
+}
+.finderWrapper input {
+  font-size: 1.6rem;
+}
+.finderWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.finderByTitle > img {
+  display: none;
+}
+.finderByTitle {
+  width: 100%;
+}
+.finderByTitle > input {
+  width: 100%;
+}
+.finderByTitle > input,
+.finderByLocation > input {
+  background-color: transparent;
+  outline: transparent;
+  color: var(--text);
+
+  border: none;
+  padding-left: 1rem;
+
+  font-size: 1.6rem;
+  font-family: "Kumbh Sans", sans-serif;
+}
+.finderByTitle > input::placeholder,
+.finderByLocation > input::placeholder {
+  font-family: "Kumbh Sans", sans-serif;
+}
+.finderByLocation {
+  display: none;
+}
+.finderSearch {
+  display: flex;
+  align-items: center;
+}
+.finderSearch div:nth-child(2) {
+  margin-right: 2rem;
+}
+
+.finderSearch > button {
+  border: none;
+  background-color: var(--violet);
+  border-radius: 5px;
+
+  padding: 1rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.4s ease;
+}
+.finderSearch > button:hover {
+  background-color: var(--light-violet);
+  cursor: pointer;
+}
+.finderSearch > button > span {
+  display: none;
+}
+.finderFullTime {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .finder {
+    margin: 0 4rem;
+  }
+
+  .finderWrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+  }
+
+  .finderWrapper > div:not(:last-child) {
+    border-right: solid 1px var(--border);
+  }
+
+  .finderByTitle {
+    display: flex;
+    align-self: stretch;
+  }
+
+  .finderByTitle > img {
+    display: flex;
+    align-self: center;
+  }
+
+  .finderByLocation {
+    display: flex;
+    align-self: stretch;
+  }
+  .finderByLocation > img {
+    display: flex;
+    align-self: center;
+  }
+  .finderSearch {
+    display: flex;
+    justify-content: space-between;
+  }
+  .finderSearch div:nth-child(2) {
+    display: none;
+  }
+
+  .finderSearch > button {
+    padding: 2rem 2rem;
+  }
+  .finderSearch > button > span {
+    display: block;
+
+    color: white;
+    font-family: "Kumbh Sans", sans-serif;
+    font-size: 1.6rem;
+    font-weight: 500;
+  }
+  .finderSearch > button > img {
+    display: none;
+  }
+
+  .finderFullTime {
+    display: flex;
+  }
+  .finderFullTime > label span {
+    font-weight: 700;
+    color: var(--text);
+  }
+  .finderFullTime > label span:nth-child(1) {
+    padding-left: 1rem;
+  }
+  .finderFullTime > label span:nth-child(2) {
+    display: none;
+  }
+}
+@media (min-width: 1024px) {
+  .finderSearch > button {
+    padding: 1.3rem 3rem;
+  }
+  .finderFullTime > label span:nth-child(1) {
+    display: none;
+  }
+  .finderFullTime > label span:nth-child(2) {
+    display: inline-block;
+    padding-left: 1rem;
+  }
+}

@@ -1,7 +1,12 @@
 import React from "react"
+import Finder from "./Finder/Finder"
 
 const Home = () => {
-  return <div></div>
+  return (
+    <>
+      <Finder />
+    </>
+  )
 }
 
 export default Home

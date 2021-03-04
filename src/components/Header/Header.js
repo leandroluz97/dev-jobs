@@ -2,9 +2,7 @@ import React, { useContext } from "react"
 import styles from "./Header.module.css"
 import { ThemeContext } from "../../context/Theme"
 const Header = (props) => {
-  const { themeDark, handleSetThemeDark } = useContext(ThemeContext)
-
-  console.log(themeDark)
+  const { themeLight, handleSetThemeLight } = useContext(ThemeContext)
 
   return (
     <header className={styles.header}>
@@ -13,10 +11,14 @@ const Header = (props) => {
           <div className={styles.headerLogoBox}>
             <img src='./icons/devjobs.svg' alt='logo' />
           </div>
-          <div className={styles.headerToggler}>
+          <div className={styles.headerToggler} onClick={handleSetThemeLight}>
             <img src='./icons/sun.svg' alt='light' />
             <div className={styles.headerToogle}>
-              <div></div>
+              <div
+                style={{
+                  left: !themeLight ? "22px" : "0px",
+                }}
+              ></div>
             </div>
 
             <img src='./icons/moon.svg' alt='dark' />
