@@ -33,6 +33,6 @@ body {
   font-family: "Kumbh Sans", sans-serif;
   font-size: 1.6rem;
   background: var(--background);
-  color: var(--grey);
+  color: var(--dark-grey);
   transition: all 0.3s;
 }

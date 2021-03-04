@@ -1,0 +1,25 @@
+.card {
+  background-color: var(--card);
+  border-radius: 6px;
+
+  padding: 2rem;
+  cursor: pointer;
+}
+
+.card p:nth-child(3) {
+  font-weight: 900;
+  color: var(--text);
+  font-size: 2rem;
+}
+.card p:not(:last-child) {
+  margin-bottom: 1.6rem;
+}
+
+.card p:last-child {
+  color: var(--violet);
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+.card img {
+  transform: translateY(-90%);
+}

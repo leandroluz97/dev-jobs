@@ -1,0 +1,32 @@
+.jobsContainer {
+  margin: 2rem;
+}
+
+.jobsWrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 5rem;
+  max-width: var(--screen-size);
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .jobsContainer {
+    margin: 4rem;
+  }
+  .jobsWrapper {
+    grid-template-columns: 1fr 1fr;
+    row-gap: 5rem;
+    column-gap: 2.5rem;
+  }
+}
+@media (min-width: 1024px) {
+  .jobsContainer {
+    margin: 2rem;
+  }
+  .jobsWrapper {
+    grid-template-columns: 1fr 1fr 1fr;
+    row-gap: 5rem;
+    column-gap: 2.5rem;
+  }
+}
