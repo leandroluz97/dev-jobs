@@ -1,0 +1,21 @@
+.apply {
+  background-color: var(--violet);
+  color: white;
+
+  border-radius: 6px;
+  padding: 3rem 2rem;
+  margin-top: 5rem;
+}
+.applyTitle {
+  margin-bottom: 2rem;
+}
+
+.apply > p {
+  line-height: 3rem;
+}
+
+@media (min-width: 768px) {
+  .apply {
+    padding: 3rem 5rem;
+  }
+}

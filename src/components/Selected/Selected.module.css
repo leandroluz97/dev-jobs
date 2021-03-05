@@ -1,0 +1,13 @@
+.selectedContainer {
+  margin: 0 2rem;
+}
+.selectedWrapper {
+  max-width: 768px;
+  margin: auto;
+}
+
+@media (min-width: 768px) {
+  .selectedContainer {
+    margin: 0 4rem;
+  }
+}
