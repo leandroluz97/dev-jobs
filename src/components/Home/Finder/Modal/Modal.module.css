@@ -1,0 +1,78 @@
+.backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100vw;
+  height: 100vh;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+
+  padding: 2rem;
+}
+
+.backdrop form {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+}
+.modalForm {
+  background: var(--card);
+  padding: 2rem;
+  border-radius: 6px;
+}
+.modalForm button {
+  border: none;
+  background: var(--violet);
+
+  color: white;
+  width: 100%;
+  border-radius: 5px;
+
+  padding: 1.5rem;
+  font-family: "Kumbh Sans", sans-serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+.modalForm button:hover {
+  background: var(--light-violet);
+}
+.modalByLocation {
+  display: flex;
+  align-items: center;
+
+  margin-bottom: 3rem;
+
+  padding-bottom: 2rem;
+  padding-top: 1rem;
+
+  border-bottom: solid 1px var(--border);
+}
+.modalByLocation > input {
+  background-color: transparent;
+  outline: transparent;
+  color: var(--text);
+
+  border: none;
+  padding-left: 2rem;
+
+  font-size: 1.6rem;
+  font-family: "Kumbh Sans", sans-serif;
+}
+
+.modalFullTime {
+  margin-bottom: 3rem;
+}
+.modalFullTime > label > span {
+  font-weight: 700;
+  color: var(--text);
+  padding-left: 1rem;
+}
+
+@media (min-width: 768px) {
+  .backdrop {
+    display: none;
+  }
+}

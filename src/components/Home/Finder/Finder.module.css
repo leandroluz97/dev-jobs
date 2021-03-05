@@ -150,6 +150,9 @@
   }
 }
 @media (min-width: 1024px) {
+  .finder {
+    margin: 0 2rem;
+  }
   .finderSearch > button {
     padding: 1.3rem 3rem;
   }
