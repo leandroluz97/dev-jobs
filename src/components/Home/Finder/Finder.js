@@ -1,10 +1,17 @@
-import React, { useContext } from "react"
+import React, { useContext, useState } from "react"
 import styles from "./Finder.module.css"
 import { ThemeContext } from "../../../context/Theme"
 import Modal from "./Modal/Modal"
 
 const Finder = () => {
   const { themeLight, handleSetThemeLight } = useContext(ThemeContext)
+  const [search, setSearch] = useState({})
+
+  const handleSearch = (e) => {
+    const searchCopy = { ...search }
+
+    setSearch({ ...search, [e.target.name]: e.target.value })
+  }
   return (
     <>
       <section className={styles.finder}>
@@ -17,6 +24,7 @@ const Finder = () => {
                 name='title'
                 id='title'
                 placeholder='Filter by title...'
+                onChange={(e) => handleSearch(e)}
               />
             </div>
             <div className={styles.finderByLocation}>
@@ -26,6 +34,7 @@ const Finder = () => {
                 name='location'
                 id='location'
                 placeholder='Filter by location...'
+                onChange={(e) => handleSearch(e)}
               />
             </div>
             <div className={styles.finderSearch}>

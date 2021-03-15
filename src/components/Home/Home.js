@@ -1,26 +1,35 @@
-import React from "react"
+import React, { useContext } from "react"
 import Finder from "./Finder/Finder"
 import Job from "./Job/Job"
 import styles from "./Home.module.css"
+import { JobsContext } from "../../context/JobsContext"
+import Spinner from "../UI/Spinner"
 
 const Home = () => {
+  const { jobs } = useContext(JobsContext)
+
+  let jobsList
+  if (jobs.length === 0) {
+    jobsList = <Spinner />
+  } else {
+    jobsList = jobs.map((job) => (
+      <Job
+        key={job.id}
+        typeJob={job.type}
+        title={job.title}
+        company={job.company}
+        location={job.location}
+      />
+    ))
+  }
+  console.log(jobs)
   return (
     <main>
       <Finder />
 
       <section className={styles.jobs}>
         <div className={styles.jobsContainer}>
-          <div className={styles.jobsWrapper}>
-            <Job />
-            <Job />
-            <Job />
-            <Job />
-            <Job />
-            <Job />
-            <Job />
-            <Job />
-            <Job />
-          </div>
+          <div className={styles.jobsWrapper}>{jobsList}</div>
         </div>
       </section>
     </main>
