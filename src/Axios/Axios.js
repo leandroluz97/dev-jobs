@@ -14,14 +14,22 @@ export default class Axios {
   }
 
   searchedJobs(title, location, fulltime, page) {
-    const titleSearch = `description=${title}`
-    const locationSearch = `location=${location}`
-    const fulltimeSearch = `full_time=${fulltime}`
-    const pageSearch = `page=${fulltime}`
+    const titleSearch = title && `description=${title}`
+    const locationSearch = location && `location=${location}`
+    const fulltimeSearch = fulltime && `full_time=${fulltime}`
+    const pageSearch = page && `page=${page}`
+
     return this.instance.get(
+      `?${locationSearch}${titleSearch}${fulltimeSearch}${pageSearch}`
+    )
+  }
+}
+
+/*
+return this.instance.get(
       `?${title && titleSearch + "&"}``${location && locationSearch + "&"}``${
         fulltime && fulltimeSearch + "&"
       }``${page && pageSearch + "&"}`
     )
   }
-}
+*/

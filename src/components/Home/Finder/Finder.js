@@ -2,15 +2,41 @@ import React, { useContext, useState } from "react"
 import styles from "./Finder.module.css"
 import { ThemeContext } from "../../../context/Theme"
 import Modal from "./Modal/Modal"
+import { useHistory } from "react-router-dom"
+import { JobsContext } from "../../../context/JobsContext"
 
 const Finder = () => {
+  //contexts
   const { themeLight, handleSetThemeLight } = useContext(ThemeContext)
-  const [search, setSearch] = useState({})
+  const { handleJobs } = useContext(JobsContext)
 
-  const handleSearch = (e) => {
+  //state
+  const [search, setSearch] = useState({
+    title: "",
+    location: "",
+  })
+  const [checkbox, setCheckbox] = useState(false)
+
+  let history = useHistory()
+
+  const handleInput = (e) => {
     const searchCopy = { ...search }
 
     setSearch({ ...search, [e.target.name]: e.target.value })
+  }
+  const handleCheckbox = (e) => {
+    setCheckbox(!checkbox)
+  }
+
+  const handleSearch = (e) => {
+    e.preventDefault()
+    //history.push("/")
+    if (search) {
+      const params = { ...search, checkbox }
+      handleJobs(params)
+    } else {
+      return
+    }
   }
   return (
     <>
@@ -24,7 +50,8 @@ const Finder = () => {
                 name='title'
                 id='title'
                 placeholder='Filter by title...'
-                onChange={(e) => handleSearch(e)}
+                onChange={(e) => handleInput(e)}
+                value={search.title}
               />
             </div>
             <div className={styles.finderByLocation}>
@@ -34,12 +61,19 @@ const Finder = () => {
                 name='location'
                 id='location'
                 placeholder='Filter by location...'
-                onChange={(e) => handleSearch(e)}
+                onChange={(e) => handleInput(e)}
+                value={search.location}
               />
             </div>
             <div className={styles.finderSearch}>
               <div className={styles.finderFullTime}>
-                <input type='checkbox' name='fulltime' id='fulltime' />
+                <input
+                  type='checkbox'
+                  name='fulltime'
+                  id='fulltime'
+                  onChange={(e) => handleCheckbox(e)}
+                  value={checkbox}
+                />
                 <label htmlFor='fulltime'>
                   <span>Full Time</span>
                   <span>Full Time Only</span>
@@ -74,7 +108,7 @@ const Finder = () => {
                   </svg>
                 )}
               </div>
-              <button>
+              <button onClick={handleSearch}>
                 <img src='./icons/finderWhite.svg' alt='finder white' />
                 <span>Search</span>
               </button>

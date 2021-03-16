@@ -5,7 +5,7 @@ import styles from "./Home.module.css"
 import { JobsContext } from "../../context/JobsContext"
 import Spinner from "../UI/Spinner"
 
-const Home = () => {
+const Home = (props) => {
   const { jobs } = useContext(JobsContext)
 
   let jobsList
@@ -22,7 +22,7 @@ const Home = () => {
       />
     ))
   }
-  console.log(jobs)
+
   return (
     <main>
       <Finder />

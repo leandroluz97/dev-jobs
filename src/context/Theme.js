@@ -9,7 +9,7 @@ export const ThemeProvider = (props) => {
     //colors
     const colorLight = [
       "--background: #f4f6f8",
-      " --card: #ffffff",
+      "--card: #ffffff",
       "--text: #19202D",
       "--border: #E7E8E9",
     ]
