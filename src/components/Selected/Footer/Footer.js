@@ -1,13 +1,13 @@
 import React from "react"
 import styles from "./Footer.module.css"
-const Footer = () => {
+const Footer = (props) => {
   return (
     <footer className={styles.footer}>
       <div>
         <div className={styles.footerHead}>
           <div>
-            <p>Senior Software Engineer</p>
-            <p>Toronto, Ontario - Remote</p>
+            <p>{props.job.title}</p>
+            <p>{props.job.location}</p>
           </div>
           <div>
             <button>Apply Now</button>

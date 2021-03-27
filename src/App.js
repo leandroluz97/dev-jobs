@@ -1,11 +1,10 @@
 import Header from "./components/Header/Header"
 import "./styles/Global.css"
-import { ThemeProvider, ThemeContext } from "./context/Theme"
-import { useContext, useEffect } from "react"
-import Axios from "./Axios/Axios"
+import { ThemeProvider } from "./context/Theme"
+
 import Home from "./components/Home/Home"
 import Selected from "./components/Selected/Selected"
-import { Switch, Route, Link } from "react-router-dom"
+import { Switch, Route } from "react-router-dom"
 import { JobProvider } from "./context/JobsContext"
 
 function App() {
@@ -25,7 +24,7 @@ function App() {
         <div className='App'>
           <Header />
           <Switch>
-            <Route path='/:id'>
+            <Route path='/job/:id'>
               <Selected />
             </Route>
             <Route path='/'>

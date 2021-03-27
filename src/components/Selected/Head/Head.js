@@ -1,17 +1,17 @@
 import React from "react"
 import styles from "./Head.module.css"
 
-const Head = () => {
+const Head = ({ company, company_url }) => {
   return (
     <div className={styles.head}>
       <div className={styles.headContent}>
         <img src='./icons/jobLogo.svg' alt='job logo' />
         <div>
-          <p>So Digital Inc.</p>
-          <p>sodigital.co</p>
+          <p>{company}</p>
+          <p>{company_url}</p>
         </div>
 
-        <button>Company site </button>
+        <a href={company_url}>Link </a>
       </div>
     </div>
   )

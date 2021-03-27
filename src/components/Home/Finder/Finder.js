@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react"
+import React, { useContext, useEffect, useState } from "react"
 import styles from "./Finder.module.css"
 import { ThemeContext } from "../../../context/Theme"
 import Modal from "./Modal/Modal"
@@ -7,7 +7,7 @@ import { JobsContext } from "../../../context/JobsContext"
 
 const Finder = () => {
   //contexts
-  const { themeLight, handleSetThemeLight } = useContext(ThemeContext)
+  const { themeLight } = useContext(ThemeContext)
   const { handleJobs } = useContext(JobsContext)
 
   //state
@@ -20,8 +20,6 @@ const Finder = () => {
   let history = useHistory()
 
   const handleInput = (e) => {
-    const searchCopy = { ...search }
-
     setSearch({ ...search, [e.target.name]: e.target.value })
   }
   const handleCheckbox = (e) => {
@@ -30,9 +28,23 @@ const Finder = () => {
 
   const handleSearch = (e) => {
     e.preventDefault()
-    //history.push("/")
+
     if (search) {
       const params = { ...search, checkbox }
+
+      let queryParams = []
+      for (let i in params) {
+        queryParams.push(
+          encodeURIComponent(i) + "=" + encodeURIComponent(params[i])
+        )
+      }
+
+      const queryString = queryParams.join("&")
+      history.push({
+        pathname: "/",
+        search: "?" + queryString,
+      })
+
       handleJobs(params)
     } else {
       return

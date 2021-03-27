@@ -9,19 +9,28 @@ export default class Axios {
     this.instance = instance
   }
 
-  getAlljobs() {
-    return this.instance.get()
+  getAlljobs(page) {
+    return this.instance.get(`?page=${page}`)
+  }
+  getJobsById(id) {
+    return axios.get(`/positions/${id}.json`)
   }
 
   searchedJobs(title, location, fulltime, page) {
-    const titleSearch = title && `description=${title}`
-    const locationSearch = location && `location=${location}`
-    const fulltimeSearch = fulltime && `full_time=${fulltime}`
-    const pageSearch = page && `page=${page}`
+    const titleSearch = title ? `description=${title + "&"}` : ""
+    const locationSearch = location ? `location=${location + "&"}` : ""
+    const fulltimeSearch = fulltime ? `full_time=true&` : ""
+    const pageSearch = page ? `page=${page}` : ""
 
+    /*console.log(
+      `?${locationSearch}${titleSearch}${fulltimeSearch}${pageSearch}`
+    )*/
     return this.instance.get(
       `?${locationSearch}${titleSearch}${fulltimeSearch}${pageSearch}`
     )
+  }
+  nextPage(pageNumber, pageRoute) {
+    return axios.get(`${pageRoute}&page=${pageNumber}`)
   }
 }
 

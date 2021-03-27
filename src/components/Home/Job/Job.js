@@ -2,7 +2,7 @@ import React from "react"
 import styles from "./Job.module.css"
 const Job = (props) => {
   return (
-    <div className={styles.card}>
+    <div className={styles.card} onClick={props.handleRoute}>
       <div className={styles.cardContent}>
         <img src='./icons/jobLogo.svg' alt='' />
         <p>5h ago &bull; {props.typeJob}</p>
