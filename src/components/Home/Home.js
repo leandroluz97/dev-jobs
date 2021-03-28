@@ -4,36 +4,23 @@ import Job from "./Job/Job"
 import styles from "./Home.module.css"
 import { JobsContext } from "../../context/JobsContext"
 import Spinner from "../UI/Spinner"
-import {
-  useHistory,
-  useParams,
-  useLocation,
-  useRouteMatch,
-} from "react-router-dom"
+import { useHistory, useLocation } from "react-router-dom"
 import Axios from "../../Axios/Axios"
 
 const Home = () => {
   //Api context
-  const {
-    jobs,
-    handleJobs,
-    setJobs,
-    page,
-    setPage,
-    pagePath,
-    setPagePath,
-  } = useContext(JobsContext)
+  const { jobs, handleJobs, setJobs, page, setPage } = useContext(JobsContext)
 
   //Routes props
   const history = useHistory()
   const location = useLocation()
-  const match = useRouteMatch()
 
   useEffect(() => {
     let params = {}
     const url = location.search.slice(1).split("&")
+    let regex = /(&|\?page=\d{1,10})$/
 
-    if (url.length !== 1) {
+    if (url.length !== 1 && location.search.replace(regex, "") !== "") {
       url.forEach((param) => {
         const key = param.split("=")
         params[key[0]] = key[1]
@@ -42,14 +29,16 @@ const Home = () => {
       handleJobs(params)
     } else {
       const axios = new Axios()
+      const pageNumber = location.search.split("=")
+      const pageIndex = pageNumber[1] ? Number(pageNumber[1]) : page
       axios
-        .getAlljobs(page)
+        .getAlljobs(pageIndex)
         .then((response) => {
           setJobs(response.data)
         })
         .catch((err) => console.log(err))
     }
-  }, [pagePath])
+  }, [page])
 
   //handle functions
   const handleRoute = (id) => {
@@ -64,17 +53,17 @@ const Home = () => {
     setPage(page + 1)
 
     if (url.search.replace(regex, "") === "") {
-      setPagePath(url.pathname)
-
       nextPage = url.search.replace(regex, "")
       history.push(`${nextPage}?page=${page + 1}`)
+
+      //setPagePath(url.pathname)
     }
 
     if (url.search.replace(regex, "") !== "") {
-      setPagePath(url.search)
-
       nextPage = url.search.replace(regexCommercial, "")
       history.push(`${nextPage}&page=${page + 1}`)
+
+      //setPagePath(url.search)
     }
   }
 

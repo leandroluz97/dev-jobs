@@ -9,39 +9,10 @@ export const JobProvider = (props) => {
   //states
   const [jobs, setJobs] = useState([])
   const [searched, setSearched] = useState({})
-  const [pagePath, setPagePath] = useState()
   const [page, setPage] = useState(1)
 
   useEffect(() => {
-    /*
-    const axios = new Axios()
-    console.log(searched)
-    axios
-      .getAlljobs()
-      .then((response) => {
-        setJobs(response.data)
-      })
-      .catch((err) => console.log(err))
-      */
-  }, [])
-  useEffect(() => {
-    /*
-    const axios = new Axios()
-    console.log(searched)
-    axios
-      .getAlljobs()
-      .then((response) => {
-        setJobs(response.data)
-      })
-      .catch((err) => console.log(err))
-      */
-  }, [page])
-
-  console.log(page)
-  useEffect(() => {
     if (!searched.title) return
-
-    console.log(searched)
 
     const title = searched.title
     const location = searched.location
@@ -56,7 +27,7 @@ export const JobProvider = (props) => {
         setJobs(jobs.data)
       })
       .catch((err) => console.log(err))
-  }, [searched, pagePath])
+  }, [searched])
 
   function handleJobs(search) {
     setSearched(search)
@@ -72,8 +43,6 @@ export const JobProvider = (props) => {
         setJobs,
         page,
         setPage,
-        pagePath,
-        setPagePath,
       }}
     >
       {props.children}
