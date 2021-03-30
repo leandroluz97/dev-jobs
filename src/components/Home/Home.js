@@ -51,6 +51,7 @@ const Home = () => {
     let nextPage
 
     setPage(page + 1)
+    setJobs([])
 
     if (url.search.replace(regex, "") === "") {
       nextPage = url.search.replace(regex, "")
@@ -82,14 +83,18 @@ const Home = () => {
       />
     ))
   }
-
+  console.log(jobs.length)
   return (
     <main>
       <Finder />
       <section className={styles.jobs}>
         <div className={styles.jobsContainer}>
           <div className={styles.jobsWrapper}>{jobsList}</div>
-          <button onClick={handleNextPage}>more job</button>
+          {jobs.length >= 50 ? (
+            <button className={styles.jobPlus} onClick={handleNextPage}>
+              More job
+            </button>
+          ) : null}
         </div>
       </section>
     </main>

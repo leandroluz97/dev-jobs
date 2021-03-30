@@ -14,6 +14,10 @@
   line-height: 3rem;
 }
 
+.apply a {
+  color: white;
+  font-weight: 800;
+}
 @media (min-width: 768px) {
   .apply {
     padding: 3rem 5rem;

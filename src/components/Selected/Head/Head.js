@@ -11,7 +11,7 @@ const Head = ({ company, company_url }) => {
           <p>{company_url}</p>
         </div>
 
-        <a href={company_url}>Link </a>
+        <a href={company_url}>Company Site </a>
       </div>
     </div>
   )

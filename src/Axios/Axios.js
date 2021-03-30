@@ -9,6 +9,9 @@ export default class Axios {
     this.instance = instance
   }
 
+  getPosition() {
+    return this.instance.get()
+  }
   getAlljobs(page) {
     return this.instance.get(`?page=${page}`)
   }

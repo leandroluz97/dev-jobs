@@ -10,6 +10,7 @@ export const JobProvider = (props) => {
   const [jobs, setJobs] = useState([])
   const [searched, setSearched] = useState({})
   const [page, setPage] = useState(1)
+  const [home, setHome] = useState(false)
 
   useEffect(() => {
     if (!searched.title) return
@@ -29,6 +30,17 @@ export const JobProvider = (props) => {
       .catch((err) => console.log(err))
   }, [searched])
 
+  useEffect(() => {
+    const axios = new Axios()
+
+    axios
+      .getPosition()
+      .then((response) => {
+        setJobs(response.data)
+      })
+      .catch((err) => console.log(err))
+  }, [home])
+
   function handleJobs(search) {
     setSearched(search)
   }
@@ -43,6 +55,8 @@ export const JobProvider = (props) => {
         setJobs,
         page,
         setPage,
+        home,
+        setHome,
       }}
     >
       {props.children}

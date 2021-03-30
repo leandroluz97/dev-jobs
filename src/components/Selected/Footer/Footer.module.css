@@ -1,9 +1,8 @@
 .footer {
-  background-color: var(--card);
   margin-top: 7rem;
 }
 .footer > div {
-  padding: 2rem;
+  padding: 0rem;
   max-width: 768px;
   margin: auto;
 }

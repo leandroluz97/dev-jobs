@@ -10,4 +10,8 @@
   .selectedContainer {
     margin: 0 4rem;
   }
+  .selected__footer {
+    background-color: var(--card);
+    display: none;
+  }
 }

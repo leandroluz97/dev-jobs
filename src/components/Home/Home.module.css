@@ -1,5 +1,6 @@
 .jobsContainer {
   margin: 2rem;
+  text-align: center;
 }
 
 .jobsWrapper {
@@ -9,7 +10,21 @@
   max-width: var(--screen-size);
   margin: 0 auto;
 }
-
+.jobPlus {
+  padding: 1.5rem;
+  border-radius: 6px;
+  background-color: var(--violet);
+  color: white;
+  font-weight: 700;
+  border: none;
+  transition: all 0.4s ease;
+  text-align: center;
+  margin-top: 5rem;
+  cursor: pointer;
+}
+.jobPlus:hover {
+  background-color: #939bf4;
+}
 @media (min-width: 768px) {
   .jobsContainer {
     margin: 4rem;

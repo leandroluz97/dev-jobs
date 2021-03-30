@@ -8,7 +8,7 @@ import { JobsContext } from "../../../context/JobsContext"
 const Finder = () => {
   //contexts
   const { themeLight } = useContext(ThemeContext)
-  const { handleJobs } = useContext(JobsContext)
+  const { handleJobs, setJobs } = useContext(JobsContext)
 
   //state
   const [search, setSearch] = useState({
@@ -16,6 +16,7 @@ const Finder = () => {
     location: "",
   })
   const [checkbox, setCheckbox] = useState(false)
+  const [isModalOpen, setIsModalOpen] = useState(false)
 
   let history = useHistory()
 
@@ -28,6 +29,8 @@ const Finder = () => {
 
   const handleSearch = (e) => {
     e.preventDefault()
+
+    setJobs([])
 
     if (search) {
       const params = { ...search, checkbox }
@@ -91,7 +94,7 @@ const Finder = () => {
                   <span>Full Time Only</span>
                 </label>
               </div>
-              <div>
+              <div onClick={() => setIsModalOpen(!isModalOpen)}>
                 {!themeLight ? (
                   <svg
                     width='20'
@@ -128,7 +131,7 @@ const Finder = () => {
           </form>
         </div>
       </section>
-      <Modal />
+      <Modal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />
     </>
   )
 }

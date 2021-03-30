@@ -27,6 +27,7 @@ const Selected = () => {
   }, [])
 
   let selected
+  console.log(selectedJob)
   if (selectedJob) {
     selected = (
       <>
@@ -39,9 +40,13 @@ const Selected = () => {
           title={selectedJob.title}
           location={selectedJob.location}
           description={selectedJob.description}
+          createdAt={selectedJob.created_at}
         />
         <Apply how_to_apply={selectedJob.how_to_apply} />
-        <Footer job={selectedJob} />
+
+        <div className='selected__footer'>
+          <Footer job={selectedJob} />
+        </div>
       </>
     )
   } else {
