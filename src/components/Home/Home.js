@@ -83,7 +83,7 @@ const Home = () => {
       />
     ))
   }
-  console.log(jobs.length)
+
   return (
     <main>
       <Finder />

@@ -30,6 +30,16 @@ const Finder = () => {
   const handleSearch = (e) => {
     e.preventDefault()
 
+    let isSearchEmpty = []
+
+    for (const key in search) {
+      isSearchEmpty.push(search[key].length > 1)
+    }
+
+    isSearchEmpty = isSearchEmpty.every((input) => input === false)
+
+    if (isSearchEmpty) return
+
     setJobs([])
 
     if (search) {
@@ -131,7 +141,15 @@ const Finder = () => {
           </form>
         </div>
       </section>
-      <Modal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />
+      <Modal
+        isModalOpen={isModalOpen}
+        setIsModalOpen={setIsModalOpen}
+        handleInput={handleInput}
+        handleCheckbox={handleCheckbox}
+        handleSearch={handleSearch}
+        search={search}
+        setSearch={setSearch}
+      />
     </>
   )
 }
