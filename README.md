@@ -1,3 +1,3 @@
 # Dev Jobs
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Click to see the project [project link](http://leandroluz97.github.io/dev-jobs).
