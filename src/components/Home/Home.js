@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react"
+import React, { useContext, useEffect, useState } from "react"
 import Finder from "./Finder/Finder"
 import Job from "./Job/Job"
 import styles from "./Home.module.css"
@@ -9,6 +9,7 @@ import Axios from "../../Axios/Axios"
 
 const Home = () => {
   //Api context
+
   const { jobs, handleJobs, setJobs, page, setPage } = useContext(JobsContext)
 
   //Routes props
