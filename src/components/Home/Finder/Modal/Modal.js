@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import Backdrop from "./Backdrop"
 import styles from "./Modal.module.css"
+import location from "../../../../assets/location.svg"
 
 const Modal = ({
   isModalOpen,
@@ -25,7 +26,7 @@ const Modal = ({
           <form>
             <div className={styles.modalForm}>
               <div className={styles.modalByLocation}>
-                <img src='./icons/location.svg' alt='finder' />
+                <img src={location} alt='finder' />
                 <input
                   type='text'
                   name='location'

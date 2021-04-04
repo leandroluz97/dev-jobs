@@ -3,6 +3,9 @@ import styles from "./Header.module.css"
 import { ThemeContext } from "../../context/Theme"
 import { JobsContext } from "../../context/JobsContext"
 import { Link } from "react-router-dom"
+import devjobs from "../../assets/devjobs.svg"
+import sun from "../../assets/sun.svg"
+import moon from "../../assets/moon.svg"
 
 const Header = (props) => {
   const { themeLight, handleSetThemeLight } = useContext(ThemeContext)
@@ -14,15 +17,11 @@ const Header = (props) => {
         <div className={styles.headerWrapper}>
           <div className={styles.headerLogoBox}>
             <Link to='/'>
-              <img
-                src='./icons/devjobs.svg'
-                alt='logo'
-                onClick={() => setHome(!home)}
-              />
+              <img src={devjobs} alt='logo' onClick={() => setHome(!home)} />
             </Link>
           </div>
           <div className={styles.headerToggler} onClick={handleSetThemeLight}>
-            <img src='./icons/sun.svg' alt='light' />
+            <img src={sun} alt='light' />
             <div className={styles.headerToogle}>
               <div
                 style={{
@@ -31,7 +30,7 @@ const Header = (props) => {
               ></div>
             </div>
 
-            <img src='./icons/moon.svg' alt='dark' />
+            <img src={moon} alt='dark' />
           </div>
         </div>
       </div>

@@ -1,11 +1,12 @@
 import React from "react"
 import styles from "./Head.module.css"
+import jobLogo from "../../../assets/jobLogo.svg"
 
 const Head = ({ company, company_url }) => {
   return (
     <div className={styles.head}>
       <div className={styles.headContent}>
-        <img src='./icons/jobLogo.svg' alt='job logo' />
+        <img src={jobLogo} alt='job logo' />
         <div>
           <p>{company}</p>
           <p>{company_url}</p>

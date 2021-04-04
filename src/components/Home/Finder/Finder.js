@@ -4,6 +4,9 @@ import { ThemeContext } from "../../../context/Theme"
 import Modal from "./Modal/Modal"
 import { useHistory } from "react-router-dom"
 import { JobsContext } from "../../../context/JobsContext"
+import finder from "../../../assets/finder.svg"
+import location from "../../../assets/location.svg"
+import finderWhite from "../../../assets/finderWhite.svg"
 
 const Finder = () => {
   //contexts
@@ -69,7 +72,7 @@ const Finder = () => {
         <div className={styles.finderContainer}>
           <form className={styles.finderWrapper}>
             <div className={styles.finderByTitle}>
-              <img src='./icons/finder.svg' alt='finder' />
+              <img src={finder} alt='finder' />
               <input
                 type='text'
                 name='title'
@@ -80,7 +83,7 @@ const Finder = () => {
               />
             </div>
             <div className={styles.finderByLocation}>
-              <img src='./icons/location.svg' alt='finder' />
+              <img src={location} alt='finder' />
               <input
                 type='text'
                 name='location'
@@ -134,7 +137,7 @@ const Finder = () => {
                 )}
               </div>
               <button onClick={handleSearch}>
-                <img src='./icons/finderWhite.svg' alt='finder white' />
+                <img src={finderWhite} alt='finder white' />
                 <span>Search</span>
               </button>
             </div>

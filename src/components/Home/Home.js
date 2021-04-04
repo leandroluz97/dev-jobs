@@ -32,10 +32,13 @@ const Home = () => {
       const axios = new Axios()
       const pageNumber = location.search.split("=")
       const pageIndex = pageNumber[1] ? Number(pageNumber[1]) : page
+
+      console.log(pageIndex)
       axios
         .getAlljobs(pageIndex)
         .then((response) => {
           setJobs(response.data)
+          setPage(pageIndex)
         })
         .catch((err) => console.log(err))
     }
@@ -81,6 +84,7 @@ const Home = () => {
         company={job.company}
         location={job.location}
         handleRoute={() => handleRoute(job.id)}
+        createdAt={job.created_at}
       />
     ))
   }
