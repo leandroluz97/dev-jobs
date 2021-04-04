@@ -14,7 +14,8 @@
     "react-scripts": "4.0.3",
     "web-vitals": "^1.0.1"
   },
-  "proxy": "https://jobs.github.com",
+ 
+  "proxy": "https://hungry-nightingale-c052d7.netlify.app/",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
