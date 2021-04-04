@@ -4,6 +4,7 @@ export default class Axios {
   constructor() {
     const instance = axios.create({
       baseURL: "https://jobs.github.com/positions.json",
+      proxy: "https://jobs.github.com",
     })
 
     this.instance = instance
