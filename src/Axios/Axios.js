@@ -3,7 +3,7 @@ import axios from "axios"
 export default class Axios {
   constructor() {
     const instance = axios.create({
-      baseURL: "/positions.json",
+      baseURL: "https://jobs.github.com/positions.json",
     })
 
     this.instance = instance
