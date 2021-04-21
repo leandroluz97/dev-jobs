@@ -3,7 +3,7 @@ import axios from "axios"
 export default class Axios {
   constructor() {
     const instance = axios.create({
-      baseURL: "https://jobs.github.com/positions.json",
+      baseURL: "https://jobs.github.com/",
     })
 
     this.instance = instance
@@ -25,9 +25,6 @@ export default class Axios {
     const fulltimeSearch = fulltime ? `full_time=true&` : ""
     const pageSearch = page ? `page=${page}` : ""
 
-    /*console.log(
-      `?${locationSearch}${titleSearch}${fulltimeSearch}${pageSearch}`
-    )*/
     return this.instance.get(
       `?${locationSearch}${titleSearch}${fulltimeSearch}${pageSearch}`,
       { crossdomain: true }
@@ -37,12 +34,3 @@ export default class Axios {
     return axios.get(`${pageRoute}&page=${pageNumber}`, { crossdomain: true })
   }
 }
-
-/*
-return this.instance.get(
-      `?${title && titleSearch + "&"}``${location && locationSearch + "&"}``${
-        fulltime && fulltimeSearch + "&"
-      }``${page && pageSearch + "&"}`
-    )
-  }
-*/
